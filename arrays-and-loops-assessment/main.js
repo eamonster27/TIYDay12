@@ -3,8 +3,8 @@
 var sports = ['soccer', 'baseball'];
 var total = sports.push('football', 'swimming');
 // A:
-// sports = <your answer>
-// total = <your answer>
+// sports = <your answer> 'soccer', 'baseball', 'football', 'swimming'
+// total = <your answer> 'soccer', 'baseball', 'football', 'swimming'
 
 
 // 2.
@@ -12,7 +12,16 @@ var total = sports.push('football', 'swimming');
 // that accepts an array argument and returns the longest string in the array
 var strings = ['this','is','a','collection','of','words'];
 // A:
-
+function longestString(str_array){
+  var longest = str_array[0];
+  for(var i = 1; i < str_array.length; ++i){
+    if(str_array[i].length > longest.length ){
+      longest = str_array[i];
+    }
+  }
+  console.log(longest);
+  return longest;
+}
 
 console.assert(longestString(strings) === 'collection', {"message": "longestString should return 'collection'"});
 
@@ -25,7 +34,16 @@ var numbers = [1,12,4,18,9,7,11,3,101,5,6];
 // Write a function `smallestNumber()` that accepts an array
 // and returns the smallest number in the array.
 // A:
-
+function smallestNumber(array){
+  var min = array[0];
+  for(var i = 1; i < array.length; ++i){
+    if(min > array[i]){
+      min = array[i];
+    }
+  }
+  console.log(min);
+  return min;
+}
 
 console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should return 1"});
 
@@ -34,7 +52,16 @@ console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should
 // Write a function `getEvens()` that accepts an array
 // and returns only the even numbers in the array.
 // A:
-
+function getEvens(array){
+  var even_array = [];
+  for(var i = 0; i < array.length; ++i){
+    if((array[i] % 2) === 0){
+      console.log(array[i]);
+      even_array.push(array[i]);
+    }
+  }
+  return even_array;
+}
 
 console.assert(getEvens(numbers).toString() === '12,4,18,6', {'message': 'getEvens should return "12,4,18,6"'});
 
@@ -46,6 +73,35 @@ console.assert(getEvens(numbers).toString() === '12,4,18,6', {'message': 'getEve
 // and decrement the iterator to zero
 // A:
 
+function arrayReverser(array){
+  var index = 0;
+  var temp;
+
+  for(var i = (array.length - 1); i >= index; --i){
+    if(index === i){
+      for(var j = 0; j < array.length; ++j){
+        console.log(array[j]);
+      }
+      return array;
+    }
+    else if((i - index) === 1){
+      temp = array[index];
+      array[index] = array[i];
+      array[i] = temp;
+
+      for(var k = 0; k < array.length; ++k){
+        console.log(array[k]);
+      }
+      return array;
+    }
+    else{
+      temp = array[index];
+      array[index] = array[i];
+      array[i] = temp;
+      ++index;
+    }
+  }
+}
 
 console.assert(arrayReverser(numbers).toString() === '6,5,101,3,11,7,9,18,4,12,1', {'message': 'arrayReverser should return "6,5,101,3,11,7,9,18,4,12,1"'});
 
