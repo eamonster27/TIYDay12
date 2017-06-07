@@ -9,7 +9,7 @@ for ( var i = 0; i < numberArray.length; i++ ) {
 var newNumber = numberArray[4];
 
 // What is the value of `newNumber`?
-// A:
+// A:6
 
 
 
@@ -18,7 +18,7 @@ var newNumber = numberArray[4];
 // returns the last item in an array without removing the item
 
 function getLastItem(array) {
-
+  return array[array.length - 1];
 }
 
 console.assert( getLastItem(odds) === 11, {'message': getLastItem(odds) + ' is not the last item in ' + odds} );
@@ -35,6 +35,8 @@ var trees = ['pine', 'cypress', 'hemlock'];
 // and add the strings 'walnut', 'cherry', and 'poplar' to the `trees` array
 
 // your code here
+trees[1] = "maple";
+trees.push('walnut', 'cherry', 'poplar');
 
 
 console.assert( trees[1] === "maple", {"message": 'The [1] index in `trees` is not "maple"'} );
@@ -58,16 +60,16 @@ var twoDimensionalArray = [
 ]
 
 var foxPair = twoDimensionalArray[3];
-// foxPair = <your answer>
+// foxPair = <your answer> ['Kit fox', 'Pale fox']
 
 var foxOne = twoDimensionalArray[0][0];
-// foxOne = <your answer>
+// foxOne = <your answer> 'Arctic fox'
 
 var foxTwo = twoDimensionalArray[4][1];
-// foxTwo = <your answer>
+// foxTwo = <your answer> 'Red fox'
 
 var foxThree = twoDimensionalArray[1][1];
-// foxThree = <your answer>
+// foxThree = <your answer> 'Cape fox'
 
 
 
@@ -84,7 +86,11 @@ var foxThree = twoDimensionalArray[1][1];
 var names = ['Huey', 'Dewey', 'Louie'];
 
 // Your code here:
-
+function rollCall(name_array){
+  for(let i = 0; i < name_array.length; ++i){
+    console.log(name_array[i] + " present!");
+  }
+}
 
 
 
@@ -93,8 +99,18 @@ var names = ['Huey', 'Dewey', 'Louie'];
 // which returns true if any two numbers in
 // the array sum to the number.
 
-function complements(){
+function complements(array, number){
+  var sum_found = false;
 
+  for(var i = 0; i < array.length; ++i){
+    for(var j = i+1; j < array.length; ++j){
+      if((array[i] + array[j]) == number){
+        sum_found = true;
+        console.log("Sum of " + array[i] + " at index " + i + " and " + array[j] + " at index " + j + " == number value: " + number + ".");
+      }
+    }
+  }
+  return sum_found;
 }
 
 var odds = [1, 3, 5, 7, 9, 11]
