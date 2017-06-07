@@ -44,6 +44,7 @@ function isValid(ccnum){
       split_ccnum[i] = split_ccnum[i] * 2;
     }
     sum = sum + (split_ccnum[i] * 1);
+    console.log(split_ccnum[i]);
   }
 
   console.log(sum);
@@ -60,4 +61,4 @@ function isValid(ccnum){
 // tests
 // ---
 console.assert(isValid("4408 0412 3456 7893") === false)
-console.assert(isValid("5000000000000000") === false)
+console.assert(isValid("5000000000000000") === true)
