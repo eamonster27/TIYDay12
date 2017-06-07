@@ -40,14 +40,14 @@ function isValid(ccnum){
     if(split_ccnum[i] == ' ') {
       split_ccnum.splice(i, 1);
     }
-    if(i % 2 == 0){
+    if(i % 2 === 0){
       split_ccnum[i] = split_ccnum[i] * 2;
     }
     sum = sum + (split_ccnum[i] * 1);
   }
 
   console.log(sum);
-  if(sum % 10 == 0){
+  if(sum % 10 === 0){
     console.log("Valid");
     return true;
   }
