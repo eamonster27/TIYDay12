@@ -8,7 +8,7 @@
 
 // Here's how to validate if a card is valid or not:
 
-// - Starting with the first digit and continuing with every other digit, multiply by 2
+// - Starting with the first digit and continuing with every other first digit, multiply by 2
 // - Sum all doubled and untouched digits in the number
 // - If that sum is a multiple of 10, the number is valid
 
@@ -32,7 +32,32 @@
 // Write a function `isValidCC(ccnum)` that takes a string and
 // returns `true` if the credit card entered is valid, `false` otherwise.
 
-function isValid(ccnum){}
+function isValid(ccnum){
+  var split_ccnum = ccnum.split("");
+  var sum = 0;
+  for(let i = 0; i < split_ccnum.length; ++i){
+    if(split_ccnum[i] == ' ') {
+      split_ccnum.splice(i, 1);
+    }
+  }
+  for(let j = 0; j < split_ccnum.length; ++j){
+    if((j == 0) || (j % 2 == 0)){
+      split_ccnum[j] = split_ccnum[j] * 2;
+    }
+    sum = sum + (split_ccnum[j] * 1);
+  }
+  console.log(sum);
+  if(sum % 10 == 0){
+    console.log("Valid");
+    return true;
+  }
+  else{
+    console.log("Invalid");
+    return false;
+  }
+
+
+}
 
 // tests
 // ---
