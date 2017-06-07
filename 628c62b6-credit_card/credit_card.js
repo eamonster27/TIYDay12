@@ -35,17 +35,17 @@
 function isValid(ccnum){
   var split_ccnum = ccnum.split("");
   var sum = 0;
+
   for(let i = 0; i < split_ccnum.length; ++i){
     if(split_ccnum[i] == ' ') {
       split_ccnum.splice(i, 1);
     }
-  }
-  for(let j = 0; j < split_ccnum.length; ++j){
-    if((j == 0) || (j % 2 == 0)){
-      split_ccnum[j] = split_ccnum[j] * 2;
+    if((i == 0) || (i % 2 == 0)){
+      split_ccnum[i] = split_ccnum[i] * 2;
     }
-    sum = sum + (split_ccnum[j] * 1);
+    sum = sum + (split_ccnum[i] * 1);
   }
+
   console.log(sum);
   if(sum % 10 == 0){
     console.log("Valid");
@@ -55,8 +55,6 @@ function isValid(ccnum){
     console.log("Invalid");
     return false;
   }
-
-
 }
 
 // tests
