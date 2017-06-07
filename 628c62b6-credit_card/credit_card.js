@@ -40,7 +40,7 @@ function isValid(ccnum){
     if(split_ccnum[i] == ' ') {
       split_ccnum.splice(i, 1);
     }
-    if((i == 0) || (i % 2 == 0)){
+    if(i % 2 == 0){
       split_ccnum[i] = split_ccnum[i] * 2;
     }
     sum = sum + (split_ccnum[i] * 1);
